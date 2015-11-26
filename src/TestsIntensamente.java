@@ -28,8 +28,6 @@ public class TestsIntensamente {
 	
 	@Test
 	public void vivirAlegriaTest() {
-		assertNotNull(riley.pensamientosCentrales);
-		assertNotNull(riley.recuerdos);
 		assertEquals(5 , riley.recuerdos.size());
 		assertEquals(5 , riley.pensamientosCentrales.size());
 		assertEquals(1000 , riley.obtenerNivelDeFelicidad(),0);
@@ -52,7 +50,8 @@ public class TestsIntensamente {
 	
 	@Test
 	public void vivirTristezaTest(){
-		assertNotNull(riley2.pensamientosCentrales);
+		assertEquals(5 , riley2.recuerdos.size(),0);
+		assertEquals(5 , riley2.pensamientosCentrales.size(),0);
 		assertEquals( 590.49 , riley2.obtenerNivelDeFelicidad(),0);
 	}
 	
@@ -74,9 +73,30 @@ public class TestsIntensamente {
 	@Test
 	public void vivirFuriaTest(){
 		assertEquals(0 , riley3.pensamientosCentrales.size());
-		assertNotNull(riley3.recuerdos);
 		assertEquals(5 , riley3.recuerdos.size());
 		assertEquals(1000 , riley3.obtenerNivelDeFelicidad(),0);
+	}
+	
+	@Before 
+	public void antesQue4(){
+		riley = new Niña();
+		riley.establecerNivelDeFelicidad(1000);
+		riley.establecerEmocionDominante(alegria);
+		riley.vivir("ir a cursar paradigmas");
+		riley.vivir("Cursar un martes");
+		riley.vivir("Votar");
+		riley.vivir("Tomar un helado de chocolate");
+		riley.vivir("Pasear al perro");
+		for (int posicion = 0; posicion < 5; posicion++) {
+		riley.recuerdos.get(posicion).asentateEn(riley);
+		}	
+	}
+	
+	@Test
+	public void conocerPensamientosCentrales(){
+		pensamientosEsperados = {"ir a cursar paradigmas", "Cursar un martes" , "Votar" , "Tomar un helado de chocolate" , "Pasear al perro"};
+		//instanciar una nueva riley rileyB o como quieras , y comparas los dos array de pensamientos centrales.
+		assertEquals(pensamientosEsperados , riley.pensamientosCentrales);
 	}
 
 
