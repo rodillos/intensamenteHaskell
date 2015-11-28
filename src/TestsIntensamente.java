@@ -11,6 +11,7 @@ public class TestsIntensamente {
 	private Niña riley2;
 	private Niña riley3;
 	private Niña riley4;
+	private Niña riley5;
 	private Alegria alegria = new Alegria();
 	private Tristeza tristeza = new Tristeza();
 	private Furia furia = new Furia();
@@ -120,11 +121,11 @@ public class TestsIntensamente {
 	@Test
 	//No se hace la comparacion de los arrays directamente debido a que compara el codigo de la variable y no su contenido.
 	public void conocerRecuerdosRecientes(){
-		assertEquals(recuerdosTest.get(0).obtenerDescripcion(), riley.obtenerRecuerdosRecientes().get(0).obtenerDescripcion());
-		assertEquals(recuerdosTest.get(1).obtenerDescripcion(), riley.obtenerRecuerdosRecientes().get(1).obtenerDescripcion());
-		assertEquals(recuerdosTest.get(2).obtenerDescripcion(), riley.obtenerRecuerdosRecientes().get(2).obtenerDescripcion());
-		assertEquals(recuerdosTest.get(3).obtenerDescripcion(), riley.obtenerRecuerdosRecientes().get(3).obtenerDescripcion());
-		assertEquals(recuerdosTest.get(4).obtenerDescripcion(), riley.obtenerRecuerdosRecientes().get(4).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(1).obtenerDescripcion(), riley.obtenerRecuerdosRecientes().get(0).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(2).obtenerDescripcion(), riley.obtenerRecuerdosRecientes().get(1).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(3).obtenerDescripcion(), riley.obtenerRecuerdosRecientes().get(2).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(4).obtenerDescripcion(), riley.obtenerRecuerdosRecientes().get(3).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(5).obtenerDescripcion(), riley.obtenerRecuerdosRecientes().get(4).obtenerDescripcion());
 	}
 	
 	// 4. Conocer los pensamientos centrales.
@@ -157,30 +158,16 @@ public class TestsIntensamente {
 	@Test 
 	public void conocerPensamientosCentrales(){
 		//No se hace la comparacion de los arrays directamente debido a que compara el codigo de la variable y no su contenido.
-		assertEquals(recuerdosTest.get(0).obtenerDescripcion() , riley.obtenerPensamientosCentrales().get(0).obtenerDescripcion());
-		assertEquals(recuerdosTest.get(1).obtenerDescripcion() , riley.obtenerPensamientosCentrales().get(1).obtenerDescripcion());
-		assertEquals(recuerdosTest.get(2).obtenerDescripcion() , riley.obtenerPensamientosCentrales().get(2).obtenerDescripcion());
-		assertEquals(recuerdosTest.get(3).obtenerDescripcion() , riley.obtenerPensamientosCentrales().get(3).obtenerDescripcion());
-		assertEquals(recuerdosTest.get(4).obtenerDescripcion() , riley.obtenerPensamientosCentrales().get(4).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(1).obtenerDescripcion() , riley.obtenerPensamientosCentrales().get(0).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(2).obtenerDescripcion() , riley.obtenerPensamientosCentrales().get(1).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(3).obtenerDescripcion() , riley.obtenerPensamientosCentrales().get(2).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(4).obtenerDescripcion() , riley.obtenerPensamientosCentrales().get(3).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(5).obtenerDescripcion() , riley.obtenerPensamientosCentrales().get(4).obtenerDescripcion());
 	}
 	
 	@Before
 	// 5. Conocer los pensamientos centrales que sean dificiles de explicar.
 	public void antesQue6(){
-		recuerdo1.establecerDescripcion("ir a cursar paradigmas");
-		recuerdo2.establecerDescripcion("Cursar");
-		recuerdo3.establecerDescripcion("Votar");
-		recuerdo4.establecerDescripcion("Tomar un helado de chocolate");
-		recuerdo5.establecerDescripcion("Pasear al perro");
-		recuerdosTest.add(recuerdo1);
-		recuerdosTest.add(recuerdo2);
-		recuerdosTest.add(recuerdo3);
-		recuerdosTest.add(recuerdo4);
-		recuerdosTest.add(recuerdo5);
-		for (int pos = 0; pos < 5; pos++){
-			recuerdosTest.get(pos).establecerFecha(fecha);
-			recuerdosTest.get(pos).establecerEmocionDominante(alegria);
-		}
 		riley4 = new Niña();
 		riley4.establecerNivelDeFelicidad(1000);
 		riley4.establecerEmocionDominante(alegria);
@@ -192,13 +179,27 @@ public class TestsIntensamente {
 	}
 	
 	@Test
-	//revisar , ya que no agrega ninguno de los recuerdos a la clase
 	public void conocerPensamientosCentralesDificiles(){
-		assertEquals(3 , riley4.obtenerPensamientosCentralesDificiles().size(),0);
-/*		assertEquals(recuerdosTest.get(0).obtenerDescripcion() , riley4.obtenerPensamientosCentralesDificiles().get(0).obtenerDescripcion());
-		assertEquals(recuerdosTest.get(3).obtenerDescripcion() , riley4.obtenerPensamientosCentralesDificiles().get(1).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(1).obtenerDescripcion() , riley4.obtenerPensamientosCentralesDificiles().get(0).obtenerDescripcion());
+		assertEquals(recuerdosTest.get(2).obtenerDescripcion() , riley4.obtenerPensamientosCentralesDificiles().get(1).obtenerDescripcion());
 		assertEquals(recuerdosTest.get(4).obtenerDescripcion() , riley4.obtenerPensamientosCentralesDificiles().get(2).obtenerDescripcion());
-*/
+		assertEquals(recuerdosTest.get(5).obtenerDescripcion() , riley4.obtenerPensamientosCentralesDificiles().get(3).obtenerDescripcion());
+	}
+	
+	@Before
+	public void antesQue7(){
+		riley5 = new Niña();
+		riley5.establecerNivelDeFelicidad(1000);
+		riley5.establecerEmocionDominante(alegria);
+		recuerdo1.establecerDescripcion("cursar");
+		recuerdo1.establecerFecha(fecha);
+		recuerdo1.establecerEmocionDominante(alegria);
+		recuerdosTest.add(recuerdo1);
+	}
+	//No entiendo como funciona (Bien por hacerlo sin funcionar , fenomeno total lo mio)
+	@Test
+	public void conocerSiRecuerdoEstadoNegado(){
+		assert(riley.niega(recuerdo1));
 	}
 	
 	
