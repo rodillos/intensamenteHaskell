@@ -71,15 +71,13 @@ public class Niña {
     
     //Se usa para el test
     
-    public ArrayList<Recuerdo> obtenerRecuerdosRecientes(){
-    	ArrayList<Recuerdo> recuerdosRecientes = new ArrayList<Recuerdo>();    
-    	int contador;
-		for ( contador= 0; contador<=5; contador++){
-			
-			if(contador <= recuerdos.size()) {
-			recuerdosRecientes.add(recuerdos.get(contador));
-			}
-		}
+    public ArrayList<Recuerdo> obtenerRecuerdosRecientes(){    
+    	ArrayList<Recuerdo> recuerdosRecientes = new ArrayList<Recuerdo>();
+    	Recuerdo recuerdo;
+    	for (int i = (recuerdos.size() - 5); i < recuerdos.size(); i++){
+    		recuerdo = recuerdos.get(i);
+    		recuerdosRecientes.add(recuerdo);
+    	}
 		return recuerdosRecientes;
 	}
     
@@ -97,30 +95,22 @@ public class Niña {
     
     //Punto 4 - Terminado
     
-    public void mostrarPensamientoscentrales (){
-    	int contador;
-        for(contador = 0; contador < pensamientosCentrales.size(); contador++) {
-    			System.out.println(pensamientosCentrales.get(contador));
-        }
-    }
+    public ArrayList<Recuerdo> obtenerPensamientosCentrales (){
+    	return pensamientosCentrales;
+    	}
         
      //Punto 5 - Terminado
     
-    public void mostrarPensamientosCentralesDificiles() {
-    	
-    	ArrayList<Recuerdo> pensamientosCentralesDificiles = new ArrayList<Recuerdo>();
-    	
-    	for(int contador1 = 0; contador1 < pensamientosCentrales.size(); contador1++ ) {
-    		
-    		if (pensamientosCentrales.get(contador1).obtenerDescripcion().length() > 10) {
-    			pensamientosCentralesDificiles.add(pensamientosCentrales.get(contador1));
+    public ArrayList<Recuerdo> obtenerPensamientosCentralesDificiles() {
+    	ArrayList<Recuerdo> pensamientosCentralesDificiles = new ArrayList<Recuerdo>(); 
+    	Recuerdo recuerdo;
+    	for (int i = 0; i < recuerdos.size(); i++ ){
+    		recuerdo = recuerdos.get(i);
+    		if(recuerdo.obtenerDescripcion().length() > 10){
+    			pensamientosCentralesDificiles.add(recuerdo);
     		}
     	}
-    	
-    	for(int contador2 = 0; contador2 < pensamientosCentralesDificiles.size(); contador2++) {
-            System.out.println(pensamientosCentralesDificiles.get(contador2));
-    	}
-
+    	return pensamientosCentralesDificiles;
     }
     
     //Punto 6 - Terminado
@@ -148,6 +138,8 @@ public class Niña {
     
     
     //Punto 8
+    
+
     
     //Punto 9
     
