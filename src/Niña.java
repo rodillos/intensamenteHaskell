@@ -5,10 +5,21 @@ public class Niña {
 	
 	private double nivelDeFelicidad;
 	private Emocion emocionDominante;
+	private int edad;
+	private Recuerdo pensamientoActual;
 	ArrayList<Recuerdo> recuerdos = new ArrayList<Recuerdo>();                                 
 	ArrayList<Recuerdo> pensamientosCentrales = new ArrayList<Recuerdo>();
 	ArrayList<ProcesoMental> procesosMentales = new ArrayList<ProcesoMental>();
 	ArrayList<Recuerdo> memoriaALargoPlazo = new ArrayList<Recuerdo>();
+	
+	public Niña(int edadNiña) {
+		edad = edadNiña;
+		nivelDeFelicidad = 1000;
+	}
+	
+	public int getEdad() {
+		return edad;
+	}
 	
 	//Punto 1 - Terminado
 	
@@ -140,18 +151,40 @@ public class Niña {
     
     //Falta la resolucion del punto 7 y verificar si cada proceso mental estaria cumpliendo su funcion correspondiente
     
-    public void dormir(String palabraclave) {
-    	
+    public void dormir(String palabraclave) {   	
     	
     	
     }
-    
-    
+        
     //Punto 8
     
     //Punto 9
     
+    public int cantidadDeRepeticionesDeUnRecuerdo(Recuerdo unRecuerdo) {
+    	int contadorRepeticiones = 0;
+    	int iterador = 0;
+    	while (iterador < memoriaALargoPlazo.size()) {
+    		if (memoriaALargoPlazo.get(iterador) == unRecuerdo)
+    			contadorRepeticiones++;
+    		iterador++;
+    	}
+       	return contadorRepeticiones;
+    }
+    
     //Punto 10
+    
+    public boolean tieneUnDejaVu() {
+    	return this.estaRepetidoEnMemoriaALargoPlazo(pensamientoActual);
+    }
+    
+    public boolean estaRepetidoEnMemoriaALargoPlazo(Recuerdo unRecuerdo) {
+    	if (this.cantidadDeRepeticionesDeUnRecuerdo(unRecuerdo) > 1) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
     
     //Punto 11
     

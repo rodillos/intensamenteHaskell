@@ -13,7 +13,7 @@ public class TestsIntensamente {
 	
 	@Before
 	public void antesQue1(){
-		riley = new Niña();
+		riley = new Niña(11);
 		riley.establecerNivelDeFelicidad(1000);
 		riley.establecerEmocionDominante(alegria);
 		riley.vivir("ir a cursar paradigmas");
@@ -37,7 +37,7 @@ public class TestsIntensamente {
 	
 	@Before
 	public void antesQue2(){
-		riley2 = new Niña();
+		riley2 = new Niña(11);
 		riley2.establecerNivelDeFelicidad(1000);
 		riley2.establecerEmocionDominante(tristeza);
 		riley2.vivir("ir a cursar paradigmas");
@@ -58,7 +58,7 @@ public class TestsIntensamente {
 	
 	@Before
 	public void antesQue3(){
-		riley3 = new Niña();
+		riley3 = new Niña(11);
 		riley3.establecerNivelDeFelicidad(1000);
 		riley3.establecerEmocionDominante(furia);
 		riley3.vivir("ir a cursar paradigmas");
