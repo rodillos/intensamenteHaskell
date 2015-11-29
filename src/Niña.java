@@ -155,9 +155,19 @@ public class Niña {
     public int cantidadDeRepeticionesDeUnRecuerdo(Recuerdo unRecuerdo) {
     	int contadorRepeticiones = 0;
     	int iterador = 0;
+    	String descripcionRecuerdo = unRecuerdo.obtenerDescripcion();
+    	Date fechaRecuerdo = unRecuerdo.obtenerFecha();
+    	Emocion emocionRecuerdo =  unRecuerdo.obtenerEmocionDominante();
     	while (iterador < memoriaALargoPlazo.size()) {
-    		if (memoriaALargoPlazo.get(iterador) == unRecuerdo)
+    		
+    		// No tiene ningun fin productivo, solamnete para que quede mas prolijo el codigo
+    		String descripcionComparado = memoriaALargoPlazo.get(iterador).obtenerDescripcion();
+    		Date fechaComparado = memoriaALargoPlazo.get(iterador).obtenerFecha();
+    		Emocion emocionComparado = memoriaALargoPlazo.get(iterador).obtenerEmocionDominante();
+    		
+        	if ((descripcionComparado == descripcionRecuerdo) && (fechaComparado == fechaRecuerdo) &&(emocionComparado == emocionRecuerdo) ){
     			contadorRepeticiones++;
+        	}
     		iterador++;
     	}
        	return contadorRepeticiones;

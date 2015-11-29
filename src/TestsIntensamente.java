@@ -23,7 +23,6 @@ public class TestsIntensamente {
 	private Recuerdo recuerdo4 = new Recuerdo();
 	private Recuerdo recuerdo5 = new Recuerdo();
 	
-	
 	//1. Hacer que Riley viva un evento y 2. Asentar un Recuerdo. Probado en los estados Alegria, Tristeza y Furia.
 	@Before
 	public void antesQue1(){
@@ -108,7 +107,7 @@ public class TestsIntensamente {
 			recuerdosTest.get(pos).establecerFecha(fecha);
 			recuerdosTest.get(pos).establecerEmocionDominante(alegria);
 		}
-		riley = new Niña();
+		riley = new Niña(11);
 		riley.establecerNivelDeFelicidad(1000);
 		riley.establecerEmocionDominante(alegria);
 		riley.recuerdos.add(recuerdo1);
@@ -145,7 +144,7 @@ public class TestsIntensamente {
 			recuerdosTest.get(pos).establecerFecha(fecha);
 			recuerdosTest.get(pos).establecerEmocionDominante(alegria);
 		}
-		riley = new Niña();
+		riley = new Niña(11);
 		riley.establecerNivelDeFelicidad(1000);
 		riley.establecerEmocionDominante(alegria);
 		riley.recuerdos.add(recuerdo1);
@@ -168,7 +167,7 @@ public class TestsIntensamente {
 	@Before
 	// 5. Conocer los pensamientos centrales que sean dificiles de explicar.
 	public void antesQue6(){
-		riley4 = new Niña();
+		riley4 = new Niña(11);
 		riley4.establecerNivelDeFelicidad(1000);
 		riley4.establecerEmocionDominante(alegria);
 		riley4.recuerdos.add(recuerdo1);
@@ -187,8 +186,9 @@ public class TestsIntensamente {
 	}
 	
 	@Before
+	// 6. Saber si Riley niega un recuerdo
 	public void antesQue7(){
-		riley5 = new Niña();
+		riley5 = new Niña(11);
 		riley5.establecerNivelDeFelicidad(1000);
 		riley5.establecerEmocionDominante(alegria);
 		recuerdo1.establecerDescripcion("cursar");
@@ -201,8 +201,5 @@ public class TestsIntensamente {
 	public void conocerSiRecuerdoEstadoNegado(){
 		assert(riley.niega(recuerdo1));
 	}
-	
-	
-	
 }
 
