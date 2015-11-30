@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class Niña {
 	
 	private double nivelDeFelicidad;
 	private Emocion emocionDominante;
 	private int edad;
-	private Recuerdo pensamientoActual;
+	public Recuerdo pensamientoActual;
 	ArrayList<Recuerdo> recuerdos = new ArrayList<Recuerdo>();                                 
 	ArrayList<Recuerdo> pensamientosCentrales = new ArrayList<Recuerdo>();
 	ArrayList<ProcesoMental> procesosMentales = new ArrayList<ProcesoMental>();
@@ -147,7 +148,11 @@ public class Niña {
     }
         
     //Punto 8
-    
+    public Recuerdo rememorar(){
+    	Random random = new Random();
+    	int  alAzar = random.nextInt(memoriaALargoPlazo.size());
+    	return memoriaALargoPlazo.get(alAzar);
+    }
 
     
     //Punto 9
