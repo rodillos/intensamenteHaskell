@@ -12,6 +12,7 @@ public class Niña {
 	ArrayList<Recuerdo> pensamientosCentrales = new ArrayList<Recuerdo>();
 	ArrayList<ProcesoMental> procesosMentales = new ArrayList<ProcesoMental>();
 	ArrayList<Recuerdo> memoriaALargoPlazo = new ArrayList<Recuerdo>();
+	private Date fecha = new Date ();
 	
 	public Niña(int edadNiña) {
 		edad = edadNiña;
@@ -148,10 +149,20 @@ public class Niña {
     }
         
     //Punto 8
-    public Recuerdo rememorar(){
+    @SuppressWarnings("deprecation")
+	public Recuerdo rememorar(){
     	Random random = new Random();
-    	int  alAzar = random.nextInt(memoriaALargoPlazo.size());
-    	return memoriaALargoPlazo.get(alAzar);
+    	Recuerdo recuerdoAlAzar = null;
+    	int  alAzar;
+    	while (recuerdoAlAzar == null){
+    		alAzar = random.nextInt(memoriaALargoPlazo.size());
+    		int añoLargoPlazo = memoriaALargoPlazo.get(alAzar).obtenerFecha().getYear();
+    		int añoActual = fecha.getYear();
+    		if(añoActual -  (this.getEdad() / 2) >= añoLargoPlazo){
+    			recuerdoAlAzar = memoriaALargoPlazo.get(alAzar);
+    		}
+    	}
+    	return recuerdoAlAzar;
     }
 
     

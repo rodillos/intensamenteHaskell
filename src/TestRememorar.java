@@ -2,7 +2,9 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,12 +25,11 @@ public class TestRememorar {
 	public void antesQue8(){
 		recuerdo1.establecerDescripcion("saltar la soga");
 		recuerdo1.establecerEmocionDominante(alegria);
-		recuerdo1.establecerFecha(fecha);
+		recuerdo1.establecerFecha(fechaTest);// fechaTest va a llevar  una fecha inventada para que de verde el test de hacer rememorar
 		riley2.establecerEmocionDominante(alegria);
 		riley2.memoriaALargoPlazo.add(recuerdo1);
-		riley2.memoriaALargoPlazo.add(recuerdo1);
-		riley2.memoriaALargoPlazo.add(recuerdo1);
-		//se trabaja con un solo recuerdo ya que al ser al azar la seleccion del metodo, no se puede hacer una assercion con varios elementos
+		riley2.memoriaALargoPlazo.add(recuerdo2);
+		riley2.memoriaALargoPlazo.add(recuerdo3);
 	}
 	
 	@Test
