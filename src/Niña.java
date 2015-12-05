@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.Random;
 
 public class Niña {
@@ -12,7 +12,8 @@ public class Niña {
 	ArrayList<Recuerdo> pensamientosCentrales = new ArrayList<Recuerdo>();
 	ArrayList<ProcesoMental> procesosMentales = new ArrayList<ProcesoMental>();
 	ArrayList<Recuerdo> memoriaALargoPlazo = new ArrayList<Recuerdo>();
-	private Date fecha = new Date ();
+	private Calendar calendario = Calendar.getInstance();
+	
 	
 	public Niña(int edadNiña) {
 		edad = edadNiña;
@@ -56,11 +57,12 @@ public class Niña {
 	public void registrarRecuerdo(String unEvento) {
 		
 		Recuerdo recuerdo = new Recuerdo();
-		Date fecha = new Date ();
-		
+		int año = calendario.get(Calendar.YEAR);
+		int mes = calendario.get(Calendar.MONTH);
+		int dia = calendario.get(Calendar.DAY_OF_MONTH);
 		recuerdo.establecerDescripcion(unEvento);
 		recuerdo.establecerEmocionDominante(emocionDominante);
-		recuerdo.establecerFecha(fecha);
+		recuerdo.establecerFecha(año , mes , dia);
 		
 		recuerdos.add(recuerdo);
 		
@@ -149,15 +151,15 @@ public class Niña {
     }
         
     //Punto 8
-    @SuppressWarnings("deprecation")
 	public Recuerdo rememorar(){
     	Random random = new Random();
     	Recuerdo recuerdoAlAzar = null;
     	int  alAzar;
+    	Calendar calendario = Calendar.getInstance();
     	while (recuerdoAlAzar == null){
     		alAzar = random.nextInt(memoriaALargoPlazo.size());
-    		int añoLargoPlazo = memoriaALargoPlazo.get(alAzar).obtenerFecha().getYear();
-    		int añoActual = fecha.getYear();
+    		int añoLargoPlazo = memoriaALargoPlazo.get(alAzar).obtenerAño();
+    		int añoActual = calendario.get(Calendar.YEAR);
     		if(añoActual -  (this.getEdad() / 2) >= añoLargoPlazo){
     			recuerdoAlAzar = memoriaALargoPlazo.get(alAzar);
     		}
@@ -172,16 +174,20 @@ public class Niña {
     	int contadorRepeticiones = 0;
     	int iterador = 0;
     	String descripcionRecuerdo = unRecuerdo.obtenerDescripcion();
-    	Date fechaRecuerdo = unRecuerdo.obtenerFecha();
+    	int añoRecuerdo = unRecuerdo.obtenerAño();
+    	int mesRecuerdo = unRecuerdo.obtenerMes();
+    	int diaRecuerdo = unRecuerdo.obtenerDia();
     	Emocion emocionRecuerdo =  unRecuerdo.obtenerEmocionDominante();
     	while (iterador < memoriaALargoPlazo.size()) {
     		
     		// No tiene ningun fin productivo, solamnete para que quede mas prolijo el codigo
     		String descripcionComparado = memoriaALargoPlazo.get(iterador).obtenerDescripcion();
-    		Date fechaComparado = memoriaALargoPlazo.get(iterador).obtenerFecha();
+    		int añoComparado = memoriaALargoPlazo.get(iterador).obtenerAño();
+    		int mesComparado = memoriaALargoPlazo.get(iterador).obtenerMes();
+    		int diaComparado = memoriaALargoPlazo.get(iterador).obtenerDia();
     		Emocion emocionComparado = memoriaALargoPlazo.get(iterador).obtenerEmocionDominante();
     		
-        	if ((descripcionComparado == descripcionRecuerdo) && (fechaComparado == fechaRecuerdo) &&(emocionComparado == emocionRecuerdo) ){
+        	if ((descripcionComparado == descripcionRecuerdo) && (añoComparado == añoRecuerdo)&& (mesComparado == mesRecuerdo)&& (diaComparado == diaRecuerdo) &&(emocionComparado == emocionRecuerdo) ){
     			contadorRepeticiones++;
         	}
     		iterador++;

@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Date;
 
 public class Recuerdo {
@@ -6,6 +7,9 @@ public class Recuerdo {
 	private Date fecha;
 	private Emocion emocionDominante;
 	private Estado estado = new SinAsentar();
+	private int año;
+	private int mes;
+	private int dia;
 	
 	//Punto 1
 	
@@ -17,18 +21,28 @@ public class Recuerdo {
 		return descripcion;
 	}
 	
-	public void mostrarDescripcion() {
+	public void mosnotrarDescripcion() {
 		System.out.println(descripcion);
 	}
 	
 	
-	public void establecerFecha(Date unaFecha) {
-		fecha = unaFecha;
+	public void establecerFecha(int unAño , int unMes , int unDia) {
+		año = unAño;
+		mes = unMes;
+		dia = unDia;
 	}
 
-	public Date obtenerFecha() {	
-		return fecha;
-	}
+	public int obtenerAño() {	
+		return año;
+		}
+	
+	public int obtenerMes() {	
+		return mes;
+		}
+	
+	public int obtenerDia() {	
+		return dia;
+		}
 	
 	public void mostrarFecha() {
 		System.out.println(fecha);

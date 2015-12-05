@@ -1,10 +1,6 @@
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +10,9 @@ public class TestRememorar {
 	private Niña riley1 = new Niña(11);
 	private Niña riley2 = new Niña(11);
 	private Alegria alegria = new Alegria();
-	private Date fecha = new Date ();
+	private int añoTest = 1999;
+	private int mesTest = 0; 
+	private int diaTest = 19; 
 	private ArrayList<Recuerdo> recuerdosTest = new ArrayList<Recuerdo>();
 	private Recuerdo recuerdo1 = new Recuerdo();
 	private Recuerdo recuerdo2 = new Recuerdo();
@@ -25,7 +23,7 @@ public class TestRememorar {
 	public void antesQue8(){
 		recuerdo1.establecerDescripcion("saltar la soga");
 		recuerdo1.establecerEmocionDominante(alegria);
-		recuerdo1.establecerFecha(fechaTest);// fechaTest va a llevar  una fecha inventada para que de verde el test de hacer rememorar
+		recuerdo1.establecerFecha(añoTest , mesTest , diaTest);
 		riley2.establecerEmocionDominante(alegria);
 		riley2.memoriaALargoPlazo.add(recuerdo1);
 		riley2.memoriaALargoPlazo.add(recuerdo2);
@@ -36,7 +34,9 @@ public class TestRememorar {
 	public void hacerRememorar(){
 		assertEquals(recuerdo1.obtenerDescripcion(), riley2.rememorar().obtenerDescripcion());
 		assertEquals(recuerdo1.obtenerEmocionDominante(), riley2.rememorar().obtenerEmocionDominante());
-		assertEquals(recuerdo1.obtenerFecha(), riley2.rememorar().obtenerFecha());
+		assertEquals(recuerdo1.obtenerAño(), riley2.rememorar().obtenerAño());
+		assertEquals(recuerdo1.obtenerMes(), riley2.rememorar().obtenerMes());
+		assertEquals(recuerdo1.obtenerDia(), riley2.rememorar().obtenerDia());
 	}
 	
 	@Before
@@ -51,7 +51,7 @@ public class TestRememorar {
 		int iterador = 0;
 		while (iterador < recuerdosTest.size()){
 			recuerdosTest.get(iterador).establecerEmocionDominante(alegria);
-			recuerdosTest.get(iterador).establecerFecha(fecha);
+			recuerdosTest.get(iterador).establecerFecha(añoTest, mesTest , diaTest);
 			iterador++;
 		}
 		riley.memoriaALargoPlazo.add(recuerdo1);
@@ -80,7 +80,7 @@ public class TestRememorar {
 		int iterador = 0;
 		while (iterador < recuerdosTest.size()){
 			recuerdosTest.get(iterador).establecerEmocionDominante(alegria);
-			recuerdosTest.get(iterador).establecerFecha(fecha);
+			recuerdosTest.get(iterador).establecerFecha(añoTest , mesTest , diaTest);
 			iterador++;
 		}
 		riley1.pensamientoActual = recuerdo1;
