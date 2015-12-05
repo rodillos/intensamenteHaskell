@@ -15,7 +15,9 @@ public class TestsIntensamente {
 	private Alegria alegria = new Alegria();
 	private Tristeza tristeza = new Tristeza();
 	private Furia furia = new Furia();
-	private Date fecha = new Date ();
+	private int añoTest = 1999;
+	private int mesTest = 0; 
+	private int diaTest = 19; 
 	private ArrayList<Recuerdo> recuerdosTest = new ArrayList<Recuerdo>();
 	private Recuerdo recuerdo1 = new Recuerdo();
 	private Recuerdo recuerdo2 = new Recuerdo();
@@ -104,7 +106,7 @@ public class TestsIntensamente {
 		recuerdosTest.add(recuerdo4);
 		recuerdosTest.add(recuerdo5);
 		for (int pos = 0; pos < 5; pos++){
-			recuerdosTest.get(pos).establecerFecha(fecha);
+			recuerdosTest.get(pos).establecerFecha(añoTest , mesTest , diaTest);
 			recuerdosTest.get(pos).establecerEmocionDominante(alegria);
 		}
 		riley = new Niña(11);
@@ -141,7 +143,7 @@ public class TestsIntensamente {
 		recuerdosTest.add(recuerdo4);
 		recuerdosTest.add(recuerdo5);
 		for (int pos = 0; pos < 5; pos++){
-			recuerdosTest.get(pos).establecerFecha(fecha);
+			recuerdosTest.get(pos).establecerFecha(añoTest , mesTest , diaTest);
 			recuerdosTest.get(pos).establecerEmocionDominante(alegria);
 		}
 		riley = new Niña(11);
@@ -192,7 +194,7 @@ public class TestsIntensamente {
 		riley5.establecerNivelDeFelicidad(1000);
 		riley5.establecerEmocionDominante(alegria);
 		recuerdo1.establecerDescripcion("cursar");
-		recuerdo1.establecerFecha(fecha);
+		recuerdo1.establecerFecha(añoTest , mesTest , diaTest);
 		recuerdo1.establecerEmocionDominante(alegria);
 		recuerdosTest.add(recuerdo1);
 	}

@@ -137,15 +137,100 @@ public class Niña {
     
     //Punto 7
     
-    public void puedeAumentarFelicidad() throws Exception {
-		if(nivelDeFelicidad + 100 > 1000) {
-			throw new Exception();
-		}
-	}
+    public void dormir(){
+    	this.asentamiento();
+    	this.profundizacion();
+    	this.controlHormonal();
+    	this.restauracionCognitiva();
+    	this.liberacionDeRecuerdosDelDia();
+    }
     
-    //Falta la resolucion del punto 7 y verificar si cada proceso mental estaria cumpliendo su funcion correspondiente
+    public void asentamiento () {
+    	int i = 0;
+    	while (i < recuerdos.size()) {
+    		recuerdos.get(i).asentateEn(this);
+    		i++;
+    	}
+    }
     
-    public void dormir(String palabraclave) {   	
+    public void profundizacion(){
+    	int i = 0;
+    	while (i < recuerdos.size()) {
+    		if ( !(this.niega(recuerdos.get(i))) && (!(this.esRecuerdoCentral(recuerdos.get(i))))){
+    			memoriaALargoPlazo.add(recuerdos.get(i));
+    			i++;
+    		}
+    	}
+    }
+    
+    public boolean esRecuerdoCentral(Recuerdo unRecuerdo){
+    	boolean esRecuerdoCentral= false;
+    	for (int i = 0; i < pensamientosCentrales.size() ; i++ ){ 
+    		if (unRecuerdo.obtenerDescripcion() == pensamientosCentrales.get(i).obtenerDescripcion()){
+    			esRecuerdoCentral = true;
+    		}
+    	}
+    	return esRecuerdoCentral;
+    }
+    
+    public void controlHormonal(){
+    	if (this.pensamientoCentralEnLargoPlazo() | this.todosTienenLaMismaEmocionDominante()){
+    		this.desequilibrioHormonal();
+    	}
+    }
+    
+    public boolean pensamientoCentralEnLargoPlazo(){
+    	int i = 0;
+    	boolean hayUnPensamiento = false;
+    	while((i < pensamientosCentrales.size()) && hayUnPensamiento == false){
+    		Recuerdo pensamientoCentral = pensamientosCentrales.get(i);
+    		for (int contador = 0 ; contador  < memoriaALargoPlazo.size() ; contador++){
+    			if (pensamientoCentral.obtenerDescripcion() == memoriaALargoPlazo.get(contador).obtenerDescripcion()){
+    				hayUnPensamiento = true;
+    			}
+    		}
+    		i++;
+    	}
+    	return hayUnPensamiento;
+    }
+    
+    public boolean todosTienenLaMismaEmocionDominante(){
+    	boolean valorVerdadPremisa = true;
+    	Emocion emocionDominante = recuerdos.get(0).obtenerEmocionDominante();
+    	int i = 1;
+    	while (i < recuerdos.size() | valorVerdadPremisa == true){
+    		if (emocionDominante != recuerdos.get(i).obtenerEmocionDominante()){
+    			valorVerdadPremisa = false;
+    		}
+    		else{
+    		i++;
+    		}
+    	}
+    	return valorVerdadPremisa;
+    }
+    
+    public void desequilibrioHormonal(){
+    	nivelDeFelicidad = nivelDeFelicidad * 0.85;
+    	pensamientosCentrales.remove(0);
+    	pensamientosCentrales.remove(1);
+    	pensamientosCentrales.remove(2);
+    }
+    
+    public void restauracionCognitiva(){
+    	if (1000 > nivelDeFelicidad +100.00){
+    		nivelDeFelicidad = nivelDeFelicidad + 100.00;
+    	}
+    	else{
+    		nivelDeFelicidad = 1000;
+    	}
+    }
+    
+    public void liberacionDeRecuerdosDelDia(){
+    	recuerdos.clear();
+    }
+    
+    public void dormir(String palabraclave) { 
+    	
     	
     	
     }
